@@ -1,19 +1,20 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import {
-  Bars3CenterLeftIcon,
   BellAlertIcon,
   BellIcon,
   MagnifyingGlassIcon,
   MoonIcon,
   QuestionMarkCircleIcon,
   ShoppingBagIcon,
+  Squares2X2Icon,
   SunIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import clsx from "clsx";
 import Categories from "./Categories";
+import BottomNav from "./BottomNav";
 
 function Navbar({ children }: any) {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -103,17 +104,17 @@ function Navbar({ children }: any) {
             ))}
           </div>
           <div className="nav-item">
-            <Link href="/notification" onClick={() => setIsRead(!isRead)}>
+            <Link className="hidden md:block" href="/notification" onClick={() => setIsRead(!isRead)}>
               {isRead ? (
                 <BellIcon className="menu-icon" />
               ) : (
                 <BellAlertIcon className="menu-icon" />
               )}
             </Link>
-            <Link href="/cart">
+            <Link href="/cart" className="hidden md:block">
               <ShoppingBagIcon className="menu-icon" />
             </Link>
-            <Link href="/profile">
+            <Link href="/profile" className="hidden md:block">
               <UserCircleIcon className="menu-icon" />
             </Link>
             <div>
@@ -126,8 +127,8 @@ function Navbar({ children }: any) {
           </div>
         </div>
         <div className="nav py-2 bg-gray-100 dark:bg-gray-800 dark:bg-opacity-40">
-          <h1 className="flex gap-2 cursor-pointer" onClick={()=>setOpen(true)}>
-            <Bars3CenterLeftIcon className="w-6" /> Tous les produits
+          <h1 className="flex gap-2 cursor-pointer" onClick={() => setOpen(true)}>
+            <Squares2X2Icon className="w-6" /> Tous les produits
           </h1>
           <div>
             <span className="pr-2">category</span>
@@ -138,7 +139,9 @@ function Navbar({ children }: any) {
       <Categories open={open} setOpen={setOpen} />
 
       {/* Bottom navigation show only mobile */}
-                
+
+      <BottomNav />
+
       <main className="pt-10 px-3">{children}</main>
     </>
   );

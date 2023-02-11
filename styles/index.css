@@ -19,7 +19,7 @@
   @apply px-2 md:px-8 flex justify-between items-center;
 }
 .input {
-  @apply block w-20 md:w-64 xl:w-96 rounded-md border border-transparent bg-gray-500 bg-opacity-20 py-3 pl-10 pr-3 leading-5 
+  @apply block w-full md:w-64 xl:w-96 rounded-md border border-transparent bg-gray-500 bg-opacity-20 py-3 pl-10 pr-3 leading-5 
   text-gray-900 dark:text-gray-200 placeholder-black dark:placeholder-gray-500 focus:border-transparent focus:bg-opacity-30 
   focus:placeholder-gray-600 focus:outline-none focus:ring-0;
 }
@@ -35,6 +35,9 @@ text-gray-200 focus:border-white focus:bg-opacity-30 focus:outline-none cursor-p
 .icon {
   @apply h-7 w-7 hover:bg-gray-200 dark:hover:bg-gray-700 p-[6px] rounded-full duration-300 
   ease-in-out cursor-pointer;
+}
+.bottom-icon{
+  @apply w-6 h-6 fill-blue-color ;
 }
 .menu-icon {
   @apply h-7 w-7 hover:bg-gray-200 dark:hover:bg-gray-700 p-1 rounded-full duration-300 
