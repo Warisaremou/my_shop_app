@@ -9,13 +9,26 @@
 
 @layer base {
   body {
-    @apply font-poppins bg-white dark:bg-gray-900 duration-200 ease-in-out;
+    @apply text-sm font-poppins bg-white dark:bg-gray-900 duration-200 ease-in-out;
   }
 }
 .nav-bar {
-  @apply fixed w-full bottom-0 md:top-0 md:bottom-auto flex justify-between items-center 
-  py-5 px-5 md:px-8 lg:px-56 bg-white/70 dark:bg-gray-900/80 backdrop-blur;
+  @apply w-full text-gray-800 dark:text-gray-200 ;
 }
+.nav {
+  @apply px-2 md:px-8 flex justify-between items-center;
+}
+.input {
+  @apply block w-20 md:w-64 xl:w-96 rounded-md border border-transparent bg-gray-500 bg-opacity-20 py-3 pl-10 pr-3 leading-5 
+  text-gray-900 dark:text-gray-200 placeholder-black dark:placeholder-gray-500 focus:border-transparent focus:bg-opacity-30 
+  focus:placeholder-gray-600 focus:outline-none focus:ring-0;
+}
+
+.search-input {
+  @apply w-16 block rounded-md border border-gray-50 bg-gray-500 bg-opacity-20 py-1 md:py-2 pl-2 leading-none 
+text-gray-200 focus:border-white focus:bg-opacity-30 focus:outline-none cursor-pointer ;
+}
+
 .nav-item {
   @apply flex gap-3 items-center;
 }
@@ -23,8 +36,9 @@
   @apply h-7 w-7 hover:bg-gray-200 dark:hover:bg-gray-700 p-[6px] rounded-full duration-300 
   ease-in-out cursor-pointer;
 }
-.send-icon {
-  @apply w-5 h-5;
+.menu-icon {
+  @apply h-7 w-7 hover:bg-gray-200 dark:hover:bg-gray-700 p-1 rounded-full duration-300 
+  ease-in-out cursor-pointer;
 }
 .icon-white {
   @apply fill-white;
@@ -35,8 +49,8 @@
 .sections-list {
   @apply text-[15px] md:text-base pt-14 md:pt-14 pb-20 px-5 md:px-8 lg:px-56 text-justify;
 }
-.section{
-  @apply text-center py-5 px-2 md:px-10 ;
+.section {
+  @apply text-center py-5 px-2 md:px-10;
 }
 .section-title {
   @apply inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#3281CB] 
