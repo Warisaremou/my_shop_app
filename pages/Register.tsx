@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Google, Facebook } from "react-bootstrap-icons";
 import Loader from "../utils/Loader";
@@ -30,17 +29,7 @@ const schema = z
 
 function Register() {
   const { loader, setLoader } = UseLoaderContext();
-  const [countries, setCountries] = useState<{ name: string }[]>([]);
-
-  useEffect(() => {
-    // getAllCountries()
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     // setAllCountries(res.data);
-    //   })
-    //   .catch((error) => console.log(error));
-  }, []);
-  const {status, data, isLoading} = useQuery("countries", getCountries)
+  const {status, data} = useQuery("countries", getCountries)
   console.log(useQuery("countries", getCountries))
   const {
     register,
@@ -124,12 +113,12 @@ function Register() {
         className="form-input cursor-pointer"
         {...register("country")}
       >
-        {(status == "success") ? data.map((country)=>(<option key={country.name} >{country.name} </option>)) : null}
+        {(status == "success") ? data.map((country: any)=>(<option key={country.name} >{country.name} </option>)) : null}
       </select>
                 </div>
-                {errors.country && (
+                {errors.country ? (
           <small className="errors block pt-3">{`${errors.country?.message}`}</small>
-        )}
+        ) : null}
               </div>
 
               {/* Mail input */}
@@ -214,7 +203,7 @@ function Register() {
                   <div className="w-full border-t border-gray-300" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="bg-white px-2 text-gray-500">Ou continuer avec</span>
+                  <span className="bg-white px-2 text-gray-500">Ou se connecter avec</span>
                 </div>
               </div>
 
@@ -235,9 +224,9 @@ function Register() {
               </div>
             </div>
             <p className="text-sm text-center pt-5">
-        Vous n&apos;avez pas de compte ?
-        <Link href="/register" className="pl-1 text-blue-color">
-          S&apos;inscrire
+            Vous avez déjà un compte ?
+        <Link href="/login" className="pl-1 text-blue-color">
+          Se connecter
         </Link>
       </p>
           </div>
