@@ -43,8 +43,8 @@ function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-1 left-2 right-2 mx-auto rounded-2xl md:hidden bg-gray-100 dark:bg-gray-800">
-      <nav className="flex justify-between items-center p-4">
+    <div className="fixed bottom-0 left-0 right-0 mx-auto md:hidden bg-gray-50 dark:bg-gray-800">
+      <nav className="flex justify-between items-center py-2 px-4">
         {bottomMenu.map(({ icon: Icon, ...menu }) => {
           return (
             <Link key={menu.name} href={menu.path} className="flex flex-col items-center">

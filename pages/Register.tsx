@@ -109,16 +109,18 @@ function Register() {
                 Votre pays
                 </label>
                 <div className="mt-1">
-                <select
-        className="form-input cursor-pointer"
-        {...register("country")}
-      >
-        {(status == "success") ? data.map((country: any)=>(<option key={country.name} >{country.name} </option>)) : null}
-      </select>
+                  <select
+                    className="form-input cursor-pointer"
+                    {...register("country")}
+                  >
+                    {(status == "success") ? data.map((country: any)=>(<option key={country.name} >{country.name} </option>)) : null}
+                  </select>
                 </div>
-                {errors.country ? (
-          <small className="errors block pt-3">{`${errors.country?.message}`}</small>
-        ) : null}
+                {errors.country ?
+                  (
+                  <small className="errors block pt-3">{`${errors.country?.message}`}</small>
+                  ) : null
+                }
               </div>
 
               {/* Mail input */}
@@ -182,9 +184,10 @@ function Register() {
                     {...register("accept")}
                   />
                   <label htmlFor="remember-me" className="ml-2 block text-gray-900 font-medium">
-                    J&apos;accepte les <Link href="/" className="text-blue-color hover:underline">
-            termes et conditions
-          </Link>
+                    J&apos;accepte les
+                    <Link href="/" className="text-blue-color hover:underline">
+                      termes et conditions
+                    </Link>
                   </label>
                 </div>
               </div>
