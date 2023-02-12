@@ -12,8 +12,7 @@ const schema = z
     email: z.string().email("Email invalide "),
     password: z.string().min(8, "Mot de passe invalide "),
     accept: z.literal(true, {
-      invalid_type_error: "Veuillez cocher !",
-      required_error: "veuillez cocher !",
+      errorMap: () => ({ message: "Vous devez accepter les termes et conditions" }),
     }),
   })
   .required();
@@ -110,7 +109,7 @@ function Login() {
                   </Link>
                 </div>
               </div>
-              {errors.accept && <small className="errors">Veuillez cocher cette case</small>}
+              {errors.accept && <small className="errors">{`${errors.accept?.message}`}</small>}
 
               <div>
                 <button type="submit" className="valide-form-btn">
