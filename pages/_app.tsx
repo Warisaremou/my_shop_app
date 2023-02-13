@@ -14,11 +14,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider enableSystem={true} attribute="class">
       <QueryClientProvider client={queryClient}>
       <LoaderContextProvider>
-        <Navbar>
+        {/* <Navbar>
         <Component {...pageProps} />
-      </Navbar> 
+      </Navbar>  */}
         {/* <Login /> */}
-        {/* <Register/> */}
+        <Register/>
       </LoaderContextProvider>
       </QueryClientProvider>
     </ThemeProvider>
