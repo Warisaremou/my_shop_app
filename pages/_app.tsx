@@ -6,6 +6,7 @@ import Login from "./Login";
 import { LoaderContextProvider } from "@/context/LoaderContext";
 import Register from "./Register";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Footer from './../components/Footer';
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
@@ -14,10 +15,11 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider enableSystem={true} attribute="class">
       <QueryClientProvider client={queryClient}>
       <LoaderContextProvider>
-        {/* <Navbar>
+        <Navbar>
         <Component {...pageProps} />
-      </Navbar>  */}
-        {/* <Login /> */}
+          </Navbar> 
+          <Footer ></Footer>
+        <Login />
         <Register/>
       </LoaderContextProvider>
       </QueryClientProvider>
